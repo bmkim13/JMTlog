@@ -1,8 +1,9 @@
 # Text Summarization 
 
 # 기반 기술
-- 한국어 형태소 분석기, Koalanlp : http://koalanlp.github.io/koalanlp/
-- Gensim 
+- <strong>필수</strong> : 한국어 형태소 분석기, Koalanlp : http://koalanlp.github.io/koalanlp/
+- 감정분석을 위한 여러 알고리즘들 : http://hero4earth.com/blog/projects/2018/01/21/naver_movie_review/
+- Gensim
   - Word2vec : https://ratsgo.github.io/natural%20language%20processing/2017/03/08/word2vec/
   - Doc2Vec : 
 
