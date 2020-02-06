@@ -1,6 +1,6 @@
 # Text Summarization 정리 
 
-## Comprehensive Guide to Text Summarization using Deep Learning in Python
+## 1. Comprehensive Guide to Text Summarization using Deep Learning in Python
 Ref : https://www.analyticsvidhya.com/blog/2019/06/comprehensive-guide-text-summarization-using-deep-learning-python/
 
 Text summarizatin 에는 두가지 방식이 있다.
@@ -53,6 +53,47 @@ LSTM network 은 target sequence word-by-word 를 읽고 같은 sequence offset�
 <start> 와 <end> 는 special tokens 으로 Decoder에 feeding 전에 추가하게 된다.
 
 ##### 2.1.2 Inference Phase
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/82.jpg)
+
+###### Inference process
+1. Encode the entire input sequence and initialize the decoder with internal states of the encoder
+2. Pass <start> token as an input to the decoder
+3. Run the decoder for one timestep with the internal states
+4. The output will be the probability for the next word. The word with the maximum probability will be selected
+5. Pass the sampled word as an input to the decoder in the next timestep and update the internal states with the current time step
+6. Repeat steps 3 – 5 until we generate <end> token or hit the maximum length of the target sequence
+  
+#### 2.2 Limitations of the Encoder – Decoder Architecture
+
+- Encoder는 전체 input sequence를 Fixed length vector로 변환 후에 Decoder는 Output sequence를 예측하게 된다. 이는 Decoder가 전체 input sequence를 보고 예측하기 때문에 짧은 sentences 에서만 잘 동작하게 된다. 
+- Long Input Sequence에서의 문제 : Encoder는 Long sequence를 Fixed length vector에 변환해서 넣는 것은 어렵다.
+
+이를 극복하기위해 Attention Mechanism을 쓰게 된다.
+
+#### 2.3 The Intuition behind the Attention Mechanism
+
+기본적인 컨셉 설명
+- Source sequence: “Which sport do you like the most?
+- Target sequence: “I love cricket”
+첫번째 단어인 "I" 의 target sequence 는 "you" 에 연결되어 있고 "love"는 "like"에 연결되어 있다.
+한번에 전체 단어를 보는 대신 target sequence의 결과에 영향을 미치는 source sequence의 부분의 중요도를 높일 수 있다. 
+
+##### 2.3.1 Global Attention
+Encoder의 모든 Hidden state 들은 Attended context vector를 얻는데 영향을 미친다.
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/121.jpg)
+
+##### 2.3.2 Local Attention
+Encoder의 일부 Hidden state들이 Attened context vector를 얻는데 영향을 미친다.
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/131.jpg)
+
+## 실습
+Jupyter Notebook으로 
+
+
+
 
 
 
