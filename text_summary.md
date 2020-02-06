@@ -51,6 +51,9 @@ LSTM network 은 target sequence word-by-word 를 읽고 같은 sequence offset�
 ![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/71.jpg)
 
 <start> 와 <end> 는 special tokens 으로 Decoder에 feeding 전에 추가하게 된다.
+  
+- TimeDistribute
+![.](https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTlfMTQ0/MDAxNTYzNDk5MDIwNjk0.Ko1jG4ematFNFGaS7dFJqJCKoyIVhLXsSLsUNWzadukg.laQainx0gqsofM7EmEi-A5POshd0OkX4yC4Ay0ZeOkwg.GIF.chunjein/2-1.gif?type=w800)
 
 ##### 2.1.2 Inference Phase
 
