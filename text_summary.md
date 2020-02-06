@@ -53,7 +53,14 @@ LSTM network 은 target sequence word-by-word 를 읽고 같은 sequence offset�
 <start> 와 <end> 는 special tokens 으로 Decoder에 feeding 전에 추가하게 된다.
   
 - TimeDistribute
+
+  Ref : [TimeDistribute 설명 블로그](https://m.blog.naver.com/PostView.nhn?blogId=chunjein&logNo=221589624838&proxyReferer=https%3A%2F%2Fwww.google.com%2F)
+
 ![.](https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTlfMTQ0/MDAxNTYzNDk5MDIwNjk0.Ko1jG4ematFNFGaS7dFJqJCKoyIVhLXsSLsUNWzadukg.laQainx0gqsofM7EmEi-A5POshd0OkX4yC4Ay0ZeOkwg.GIF.chunjein/2-1.gif?type=w800)
+
+- Non TimeDistribute 
+
+![.](https://mblogthumb-phinf.pstatic.net/MjAxOTA3MTlfMjEz/MDAxNTYzNDk5MzU3MTU3.CvAWXC9qs5JiguevobzkDPmOggpTNGJNhNJvbh7bEy0g.uTUc7Hbx-UIXsP3tRZVMGFDj_7wv4YVwokvwkIwKlgwg.GIF.chunjein/2-2.gif?type=w2)
 
 ##### 2.1.2 Inference Phase
 
