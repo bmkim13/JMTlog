@@ -99,6 +99,94 @@ Encoder의 일부 Hidden state들이 Attened context vector를 얻는데 영향�
 
 ![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/131.jpg)
 
+### 3. How does the Attension Mechanism Work?
+
+1. Source sequence에 대해서 Encoder는 Hidden state(hj) 를 모든 Timestep j 마다 출력합니다.
+2. 유사하게 Decoder 도 Hidden state(si)를 모든 Timestep i 마다 출력합니다.
+3. Alignment Sore(eij) 는 Target word 와 Source word 의 Align 으로 Score가 계산되어 진다. 
+   - Aligment score는 score funtion을 사용해서 hj 와 si로 부터 계산되어 진다. 
+> 수식 : $$
+eij= score (si, hj )
+$$
+
+일부 유명한 Attension Mechanisms
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/14.jpg)
+
+#### 3.1 Attension Mechanism Process
+
+1. aij : Normalize the alignment scores
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/211.jpg)
+
+2. Ci : Attended Context Vector, aij와 hj의 곱의 합
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/16.jpg)
+
+3. Si : Attended Hidden Vector
+
+  Si = concatenate([si; Ci])
+  
+4. yi dense를 Si 의 Feeding으로 만들어 낸다.
+
+  yi = dense(Si)
+
+#### 3.2 상세한 Flow의 이해 
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/17.jpg)
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/final-1.jpg)
+
+1. Target timestep i=1
+
+- Alignment Score
+
+<center>
+ 
+```python
+e11= score(s1, h1)
+e12= score(s1, h2)
+e13= score(s1, h3)
+e14= score(s1, h4)
+```
+
+</center>
+
+- Normalizing
+
+```python
+a11= exp(e11)/((exp(e11)+exp(e12)+exp(e13)+exp(e14))
+a12= exp(e12)/(exp(e11)+exp(e12)+exp(e13)+exp(e14))
+a13= exp(e13)/(exp(e11)+exp(e12)+exp(e13)+exp(e14))
+a14= exp(e14)/(exp(e11)+exp(e12)+exp(e13)+exp(e14))
+```
+
+- Attended Context Vector C1
+
+```python
+C1= h1 * a11 + h2 * a12 + h3 * a13 + h4 * a14
+```
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/19.jpg)
+
+- Attended Hidden Vector S1
+
+```python
+S1= concatenate([s1; C1])
+```
+
+- Dense 만들기 
+
+```python
+y1= dense(S1)
+```
+
+2. Target timestep i=2
+Timestep 1 과 유사하게 진행된다.
+
+![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/20.jpg)
+
+
 ## 실습
 Jupyter Notebook으로 
 
