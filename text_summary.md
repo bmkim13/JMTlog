@@ -66,13 +66,13 @@ LSTM network 은 target sequence word-by-word 를 읽고 같은 sequence offset�
 
 ![.](https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2019/05/82.jpg)
 
-###### Inference process
-1. Encode the entire input sequence and initialize the decoder with internal states of the encoder
-2. Pass <start> token as an input to the decoder
-3. Run the decoder for one timestep with the internal states
-4. The output will be the probability for the next word. The word with the maximum probability will be selected
-5. Pass the sampled word as an input to the decoder in the next timestep and update the internal states with the current time step
-6. Repeat steps 3 – 5 until we generate <end> token or hit the maximum length of the target sequence
+##### Inference process
+1. 전체 input sequence 를 Encode 하고 Decoder를 Encoder의 internal state를 이용해서 initialize 한다.
+2. \<start\> Token 을 Decoder의 input으로 넣는다.
+3. 하나의 Timestep을 위한 Decoder를 실행 시킨다.(Encoder의 internal states 사용)
+4. 다음 단어를 위한 Probability가 Output으로 나오면, 그중 가장 큰 Probability를 선택한다.
+5. Decoder의 다음 Timestep으로 선택된 단어를 넘긴다. 현재 Current Timestep의 internal states를 업데이트 한다.
+6. \<end\> token이 나오거나 target sequence의 Maximum length 까지 3~5번과정을 반복한다.
   
 #### 2.2 Limitations of the Encoder – Decoder Architecture
 
