@@ -12,10 +12,24 @@ var clickHandler = function (e) {
     if (e.selectionText) {
         gSelectedInfo.selectedText = e.selectionText;
         console.log("text : " + gSelectedInfo.selectedText);
+        chrome.runtime.sendMessage(
+            {
+                from: "content",
+                subject: "selectedText",
+                url: gSelectedInfo.url,
+                data: gSelectedInfo.selectedText
+            });
     }
     if (e.mediaType === 'image') {
         gSelectedInfo.imageUrl = e.srcUrl;
         console.log("image : " + gSelectedInfo.imageUrl);
+        chrome.runtime.sendMessage(
+            {
+                from: "content",
+                subject: "imageUrl",
+                url: gSelectedInfo.url,
+                data: gSelectedInfo.imageUrl
+            });
     }
 };
 
