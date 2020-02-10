@@ -1,24 +1,22 @@
+// need to add "default_popup" : "popup.html" at manifest.json
 'use strict';
 
-var gSelectedInfo;
+var gIsShowWindow;
 
 function sendData() {
-    var category = document.getElementById('category').value
-    alert(category)
+    showWindow();
 }
 
-function loadDataFromBackground() {
+function showWindow() {
     chrome.runtime.sendMessage(
         {from: "popup",
-        subject: "selectedInfo"},
+        subject: "showWindow"},
         function (response) {
-            gSelectedInfo = response;
-            document.getElementById('selectedText').textContent = response.selectedText
-            document.getElementById('selectedImage').src = response.imageUrl
+            gIsShowWindow = response
         });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    loadDataFromBackground();
-    document.getElementById("send").addEventListener('click', sendData);
+    document.getElementById("show").addEventListener('click', sendData);
 });
+
