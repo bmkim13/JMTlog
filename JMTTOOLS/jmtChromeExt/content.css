@@ -1,0 +1,8 @@
+.mouse_selected_text {
+    background-color: #bcd5eb !important;
+    outline: 1px solid #5166bb !important;
+}
+
+.mouse_selected_image {
+    outline: 5px solid #990000 !important;
+}
