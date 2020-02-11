@@ -11,11 +11,13 @@
 2. Text를 긁어서 오른쪽 클릭해서 Context menu에서 "<img src="https://github.com/bmkim13/JMTlog/blob/master/JMTTOOLS/jmtChromeExt/128.png" width="16">JMT" 메뉴를 클릭한다.
 
 ### - Selection이 막혀 있는 web page
-1. Text를 긁어서 shift 를 누른 상태에서 mouse up을 하면 text 가 수집된다.
+1. mouse down으로 Text를 긁어서 ctrl & shift 를 누른 상태에서 mouse up을 하면 text 가 수집된다.
 또는 
-1. shift + ctrl 을 누른 상태에서 mouse down을 하면 text가 계속 더해지면서 수집된다.
-   1.1 더해진 수집 항목을 clear 시키고 싶으면 shift + alt를 누른 상태에서 mouse down을 한다.
-2. shift + ctrl 을 누른 상태에서 해당 image에 mouse down을 하면 image가 수집된다.
+1. ctrl 을 누른 상태에서 mouse down을 하면 text가 계속 더해지면서 수집된다.
+   1.1 더해진 수집 항목을 clear 시키고 싶으면 ctrl + alt를 누른 상태에서 mouse down을 한다.
+2. ctrl 을 누른 상태에서 해당 image에 mouse down을 하면 image가 수집된다.
+
+### - word 빈도수에 따라 3글자 keyword를 참고삼아 뽑아 준다.
 
 
 
