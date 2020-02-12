@@ -1,4 +1,5 @@
 import sys
+import api
 from PyQt5 import QtWidgets
 import requests
 # from requests.adapters import HTTPAdapter
@@ -235,15 +236,16 @@ class FlaskyFrontEnd(QtWidgets.QWidget):
         # conn.send('start')
         # conn.close()
 
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-            client_socket.connect(SERVER_ADDR)
-            # client_socket.send('hi'.encode())
-            client_socket.send('start'.encode())
+        # with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
+        #     client_socket.connect(SERVER_ADDR)
+        #     client_socket.send('hi'.encode())
+            # client_socket.send('start'.encode())
             # msg = client_socket.recv(SIZE)
             # print("resp from server : {}".format(msg))
         # (s, status, response_headers) = http_proxy_connect(('127.0.0.1/quit', 5000), ('168.219.61.252', 8080))
         # print(status, response_headers)
         # s.send('start'.encode())
+        api.run_server()
 
 
 # def exception_handler(request, exception):
@@ -255,7 +257,8 @@ if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     ex = FlaskyFrontEnd()
 
-    subprocess.Popen(["python", "./api.py"] + sys.argv[1:])
+    # subprocess.Popen(["python", "./api.py"] + sys.argv[1:])
+
 
     sys.exit(app.exec_())
 

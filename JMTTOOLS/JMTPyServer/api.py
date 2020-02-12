@@ -113,6 +113,12 @@ class quit(Resource):
 api.add_resource(CreateData, '/upload')
 api.add_resource(quit, '/quit')
 
+def run_server():
+    global socketio
+    global app
+    print("Staring api server!!!!!!")
+    socketio.run(app)
+
 if __name__ == '__main__':
     print("Staring api server!!!!!!")
     socketio.run(app)
