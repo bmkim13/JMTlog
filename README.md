@@ -14,6 +14,6 @@ JMT log favorite restarant guide.
 
   1. [NLP 관련 기술 요약](https://github.com/bmkim13/JMTlog/blob/master/nlp.md)
 
-  2. [Text summarize](https://github.com/bmkim13/JMTlog/blob/master/text_sumerize.md)
+  2. [Text summarize](https://github.com/bmkim13/JMTlog/blob/master/text_summary.md)
   
   3. [LSTM for TensorflowLite](https://colab.research.google.com/github/tensorflow/tensorflow/blob/master/tensorflow/lite/experimental/examples/lstm/TensorFlowLite_LSTM_Keras_Tutorial.ipynb#scrollTo=wiYZoDlC5SEJ)
